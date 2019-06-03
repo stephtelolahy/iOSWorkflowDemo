@@ -12,6 +12,7 @@
 		AD1F03A922A59FE60039DB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD1F03A822A59FE60039DB1C /* Assets.xcassets */; };
 		AD1F03AC22A59FE60039DB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD1F03AA22A59FE60039DB1C /* LaunchScreen.storyboard */; };
 		AD1F03B622A5BBA30039DB1C /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1F03B522A5BBA30039DB1C /* StepsViewController.swift */; };
+		AD1F03BA22A5D3FF0039DB1C /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1F03B922A5D3FF0039DB1C /* ItemsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AD1F03AB22A59FE60039DB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD1F03AD22A59FE60039DB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD1F03B522A5BBA30039DB1C /* StepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
+		AD1F03B922A5D3FF0039DB1C /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				AD1F03A122A59FE40039DB1C /* AppDelegate.swift */,
+				AD1F03B922A5D3FF0039DB1C /* ItemsTableViewController.swift */,
 				AD1F03B522A5BBA30039DB1C /* StepsViewController.swift */,
 				AD1F03A522A59FE40039DB1C /* Main.storyboard */,
 				AD1F03A822A59FE60039DB1C /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			files = (
 				AD1F03A222A59FE40039DB1C /* AppDelegate.swift in Sources */,
 				AD1F03B622A5BBA30039DB1C /* StepsViewController.swift in Sources */,
+				AD1F03BA22A5D3FF0039DB1C /* ItemsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

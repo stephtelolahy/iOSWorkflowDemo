@@ -14,20 +14,22 @@ class StepsViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     private var pageViewController: UIPageViewController!
     
-    private var items: [UIViewController]!
-    private var currentIndex = 0
+    private lazy var items: [UIViewController] = {
+        let colors: [UIColor] = [.red, .green, .blue, .orange]
+        return colors.map { createStepviewController(with: $0) }
+    }()
+    
+    var currentIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        add(asChildViewController: pageViewController, containerView: containerView)
-        populateItems()
+        add(asChildViewController: pageViewController, in: containerView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigateToStep(index: 1, animated: false)
+        navigateToStep(index: currentIndex, animated: false)
     }
     
     @IBAction func onCloseTapped(_ sender: Any) {
@@ -45,12 +47,6 @@ class StepsViewController: UIViewController {
 
 private extension StepsViewController {
     
-    func populateItems() {
-        let colors: [UIColor] = [.red, .green, .blue, .orange]
-        items = colors.map { createStepviewController(with: $0) }
-        pageControl.numberOfPages = colors.count
-    }
-    
     func createStepviewController(with color: UIColor) -> UIViewController {
         let viewController = UIViewController()
         viewController.view.backgroundColor = color
@@ -59,7 +55,7 @@ private extension StepsViewController {
     
     func navigateToStep(index: Int, animated: Bool) {
         title = "Step \(index + 1)/\(items.count)"
-        let direction: UIPageViewController.NavigationDirection = currentIndex < index ? .backWard: .forward
+        let direction: UIPageViewController.NavigationDirection = currentIndex > index ? .reverse : .forward
         pageViewController.setViewControllers([items[index]], direction: direction, animated: animated)
         pageControl.currentPage = index
         currentIndex = index
@@ -67,18 +63,11 @@ private extension StepsViewController {
 }
 
 extension UIViewController {
-    func add(asChildViewController viewController: UIViewController, containerView: UIView) {
-        // Add Child View Controller
+    func add(asChildViewController viewController: UIViewController, in containerView: UIView) {
         addChild(viewController)
-        
-        // Add Child View as Subview
         containerView.addSubview(viewController.view)
-        
-        // Configure Child View
         viewController.view.frame = containerView.bounds
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        // Notify Child View Controller
         viewController.didMove(toParent: self)
     }
 }
